@@ -1,0 +1,424 @@
+[data-theme=light] {
+	--color-theme: #007070;
+	--color-background: #B0C4DE;
+	--color-bgsecondary: #ffffff;
+	--color-content: #ffffff;
+	--color-secondary: #502b1e;
+	--color-bgstar: #ffffff;
+	--color-textstar: #000000;
+	--color-even-ayah: #ffffff;
+	--color-odd-ayah: #f2f2f2;
+	--color-title-text: #007070;
+	--color-separator: #eeeeee;
+	--color-arabic: #663399;
+	--color-text: #663399;
+	--color-mint: #82CFD0;
+	--color-shadow-rgb: 119, 119, 119
+}
+
+[data-theme=dark] {
+	--color-theme: #1f2125;
+	--color-background: #343a40;
+	--color-bgsecondary: #1f2125;
+	--color-content: #1f2125;
+	--color-secondary: #777777;
+	--color-bgstar: #343a40;
+	--color-textstar: #ffffff;
+	--color-even-ayah: #1f2125;
+	--color-odd-ayah: #252a2e;
+	--color-title-text: blue;
+	--color-separator: #464b50;
+	--color-arabic: #ffffff;
+	--color-text: #ffffff;
+	--color-mint: #82CFD0;
+	--color-shadow-rgb: 0, 0, 0
+}
+
+#darkSwitch{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    appearance: none;
+    -webkit-appearance : none;
+    -moz-appearance : none;
+    -o-appearance : none;
+    width: 50px; /* mengubah lebar tombol menjadi 50 px */
+    height: 20px; /* mengubah tinggi tombol menjadi 20 px */
+    background: black;
+    border-radius: 22px;
+    cursor: pointer;
+    outline: none;
+}
+
+#darkSwitch::before{
+    content: '';
+    position: absolute;
+    width: 15px; /* mengubah lebar slider menjadi 10 px */
+    height: 15px; /* mengubah tinggi slider menjadi 15 px */
+    background-color:white;
+    border-radius: 15px; /* mengubah sudut slider menjadi bulat */
+    top: 2.5px; /* mengubah jarak slider dari atas tombol menjadi 2.5 px */
+    left: 2.5px; /* mengubah jarak slider dari kiri tombol menjadi 2.5 px */
+    cursor: pointer;
+    transition: .1s linear;
+}
+
+#darkSwitch:checked + .container{
+  background: rgb(19, 18, 18);
+  color: white;
+}
+
+#darkSwitch:checked::before{
+    left: 35px; /* mengubah jarak slider dari kiri tombol menjadi 37.5 px */
+}
+
+#darkSwitch:checked{
+    background: rgb(12, 177, 81);
+}
+
+#themeLabel {
+  /* mengatur posisi, warna, dan ukuran label */
+  position: fixed;
+  top: 20px;
+  right: 70px; /* mengubah jarak label dari kanan halaman menjadi 90 px */
+  color: white; /* mengubah warna teks label menjadi putih */
+  font-size: 14px; /* mengubah ukuran teks label menjadi 14 px */
+  font-weight: bold;
+  /* membuat label tidak bisa dipilih */
+  user-select: none;
+}
+
+
+/* Media width ==== */
+/* Gaya CSS untuk layar yang lebarnya minimal 376px */
+@media screen and (min-width: 376px) {
+  /* Mengatur lebar elemen body menjadi 70% dari lebar viewport */
+  body {
+    width: 70vw;
+  }
+
+  /* Mengatur margin elemen body menjadi auto untuk menengahkannya */
+  body {
+    margin: auto;
+  }
+}
+
+@font-face {
+	font-family: "KFGQPC Uthmanic Script HAFS";
+	font-style: normal;
+	src: url("KFGQPC Uthmanic Script HAFS Regular.otf")
+}
+
+@font-face {
+	font-family: Poppins;
+	font-style: normal;
+	src: url(../fonts/font-Poppins-Regular.ttf) format("truetype")
+}
+
+* {
+	padding: 0;
+	margin: 0
+}
+
+*,
+:after,
+:before {
+	box-sizing: inherit
+}
+
+html {
+	box-sizing: border-box
+}
+
+body {
+	font-family: Poppins, sans-serif;
+	background: var(--color-background);
+	-webkit-text-size-adjust: 100%;
+	font-size: 16px
+}
+
+.content {
+	background: var(--color-content);
+	border-radius: 10px
+}
+
+button,
+div,
+span {
+	-webkit-tap-highlight-color: transparent
+}
+.parent-element {
+	overflow: auto;
+}
+.arabic {
+	font-family: "KFGQPC Uthmanic Script HAFS";
+	color: var(--color-arabic);
+	word-break: break-word;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: left; 
+	font-weight: bold; 
+	
+}
+.basmalah {
+  color: var(--color-arabic);
+  font-size: 27px;
+  text-align: center;
+  font-family: "KFGQPC Uthmanic Script HAFS";
+  
+}
+
+
+.star8 {
+	width: 50px;
+	height: 50px;
+	background-image: url(star8.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: -30px;
+	color: var(--color-title-text)
+}
+
+.star9 {
+	background-image: url(star8.png);
+	width: 31px;
+	height: 31px;
+	content: attr(data-label);
+	text-align: center;
+	line-height: 2.3;
+	font-size: 14px;
+	font-weight: 700;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: var(--color-title-text);
+	float: left;
+	clear: both;
+	margin-bottom: -55px;
+	margin-top: 10px;
+display: block;
+}
+.element-after {
+	clear: both;
+}
+
+
+
+
+
+audio::-webkit-media-controls-panel {
+  background-color: var(--color-background);
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: var(--color-title-text);
+  border-radius: 50%;
+  position: right;
+}
+
+
+audio::-webkit-media-controls-play-button:hover {
+  background-color: rgba(177,212,224, .7);
+}
+
+.type {
+	display: block;
+	line-height: 1.2
+}
+
+.type {
+	font-size: 13px;
+	color: var(--color-secondary);
+	text-transform: capitalize
+}
+
+.artr {
+	color: var(--color-title-text);
+	display: block;
+	margin-bottom: 7px
+}
+
+.arid {
+	color: var(--color-text)
+}
+
+.ayat {
+	width: 100%;
+	
+}
+.verse {
+
+  margin: 10px; /* Menambahkan jarak antara elemen verse dan elemen lain sebesar 10 piksel */
+}
+/* Menambahkan kode CSS untuk class number */
+.number {
+  /* Menambahkan border berwarna hitam dengan ketebalan 1px dan gaya solid */
+  border: 1px solid blue;
+
+  /* Menambahkan jarak antara border dan konten sebesar 10px */
+  padding: 10px;
+  border-radius: 10px;
+
+  /* Menambahkan jarak antara elemen number dan elemen lain sebesar 20px */
+  margin: 0px;
+}
+.surah {
+  color: var(--color-arabic);
+  font-size: 26px;
+  margin: 10px;
+}
+
+ul, li{
+  color: var(--color-title-text);
+  font-size: 14px;
+}
+
+button {
+  color: white;
+  background-color: green;
+  margin: 5px;
+}
+
+#deskripsi-text {
+  border: 2px solid green;
+  text-align: justify;
+  font-size: 11px;
+  margin: 3px;
+  padding: 3px;
+  color: var(--color-title-text);
+}
+
+
+.verse .arid,
+.verse .artr {
+	font-size: 13px
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0)
+	}
+
+	to {
+		transform: rotate(360deg)
+	}
+}
+
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0)
+	}
+
+	to {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+@-moz-keyframes spin {
+	from {
+		-moz-transform: rotate(0)
+	}
+
+	to {
+		-moz-transform: rotate(360deg)
+	}
+}
+
+@-o-keyframes spin {
+	from {
+		-o-transform: rotate(0)
+	}
+
+	to {
+		-o-transform: rotate(360deg)
+	}
+}
+
+@-webkit-keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0
+	}
+
+	to {
+		bottom: 30px;
+		opacity: 1
+	}
+}
+
+@keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0
+	}
+
+	to {
+		bottom: 30px;
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1
+	}
+
+	to {
+		bottom: 0;
+		opacity: 0
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1
+	}
+
+	to {
+		bottom: 0;
+		opacity: 0
+	}
+}
+
+    /* Mengatur tampilan tombol dan menu */
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Menambahkan properti ini untuk membuat elemen rata kanan */
+  margin: 10px;
+  margin-right: 10px; /* Menambahkan properti ini untuk memberikan jarak kanan */
+}
+
+button,
+select {
+  padding: 10px;
+  border: 1px solid var(--border-color-light); /* Menggunakan css variabel untuk warna border */
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover,
+select:hover {
+  background-color: var(--border-color-light); /* Menggunakan css variabel untuk warna latar belakang */
+}
+
+/* Mengganti warna border jika data-theme="dark" */
+body[data-theme="dark"] button,
+body[data-theme="dark"] select {
+  border-color: var(--border-color-dark); /* Menggunakan css variabel untuk warna border */
+}
+
+body[data-theme="dark"] button:hover,
+body[data-theme="dark"] select:hover {
+  background-color: var(--border-color-dark); /* Menggunakan css variabel untuk warna latar belakang */
+}
+
+ 

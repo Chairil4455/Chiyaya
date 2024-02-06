@@ -1,0 +1,51 @@
+
+ 
+function getSurat() {
+  fetch('https://equran.id/api/surat')
+    .then(response => response.json())
+    .then(response => {
+      let borderSurat = "";
+      response.forEach(surat => {
+        borderSurat +=
+          `<div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="border mb-2 borderSurat">
+              <div class="star8">${surat.nomor}.</div>
+              <div class="info">
+                <span class="nmayah" onclick="location.href='surat.html?nomorsurat=${surat.nomor}'">${surat.nama_latin}.</span>
+                <small class="arti">(${surat.arti}).</small>
+                <span class="type">${surat.tempat_turun}.${surat.jumlah_ayat} ayat </span>
+                <audio id="audio" src="${surat.audio["[01"]}"></audio><i id="play" class="bi bi-play" onclick="playAudio()" style="display: block;"></i>
+                <i id="pause" class="bi bi-pause" onclick="pauseAudio()" style="display: none;"></i>
+              </div>
+              <div class="arabic">${surat.nama}</div>
+            </div>
+          </div>`;
+      });
+
+      const listSurat = document.querySelector('.border-surat-list');
+      listSurat.innerHTML = borderSurat;
+
+      // Kemudian, tempatkan kode JavaScript berikut di sini
+      const audio = document.getElementById("audio");
+      const play = document.getElementById("play");
+      const pause = document.getElementById("pause");
+
+      function playAudio() {
+        audio.play(); // memutar audio
+        play.style.display = "none"; // menyembunyikan gambar play
+        pause.style.display = "block"; // menampilkan gambar pause
+      }
+
+      function pauseAudio() {
+        audio.pause(); // menjeda audio
+        play.style.display = "block"; // menampilkan gambar play
+        pause.style.display = "none"; // menyembunyikan gambar pause
+      }
+
+      console.log(response);
+    });
+}
+
+getSurat();
+ 
+

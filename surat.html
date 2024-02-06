@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quran</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="Description" content="Al-Quran. Digital Al-Qur'an. Al Quran online, Quran online.">
+    <meta name="theme-color" content="#007070">
+    <link rel="shortcut icon" type="image/png" href="favicons/.-9710-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicons/.-7998-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicons/.-549-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicons/.-4512-icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicons/.-7142-icon.png">
+    <link rel="shortcut icon" type="image/png" href="favicons/.-9060-icon.png">
+
+    <meta property="og:url" content="https://iherbs.github.io/quran/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="iQuran">
+    <meta property="og:description" content="Al-Quran. Digital Al-Qur'an">
+    <meta property="og:image" content="https://raw.githubusercontent.com/iherbs/iherbs.github.io/main/quran/quran-book.png">
+
+    <title>Mexant - Financial HTML5 Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css" rel="stylesheet" >
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-574-mexant.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="css.surat.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+</head>
+</header>
+<body data-theme="light">
+
+<input type="checkbox" id="darkSwitch">
+<label for="darkSwitch" id="themeLabel">thema</label>
+
+
+    
+  <div class="surah">
+  <h2>Nama Surah</h2>
+  
+</div>
+
+  <div id="verse">
+  </div>
+  <script>
+// mendapatkan elemen checkbox dan label
+var darkSwitch = document.getElementById("darkSwitch");
+var themeLabel = document.getElementById("themeLabel");
+
+// menambahkan event listener untuk checkbox
+darkSwitch.addEventListener("change", function() {
+  // mendapatkan elemen body
+  var body = document.body;
+  // mendapatkan atribut data-theme dari body
+  var theme = body.getAttribute("data-theme");
+  // mengganti tema sesuai dengan kondisi
+  if (darkSwitch.checked) {
+    // mengubah data-theme menjadi dark
+    body.setAttribute("data-theme", "dark");
+    // mengubah teks label menjadi Dark
+    themeLabel.textContent = "Dark";
+  } else {
+    // mengubah data-theme menjadi light
+    body.setAttribute("data-theme", "light");
+    // mengubah teks label menjadi Light
+    themeLabel.textContent = "Light";
+  }
+});
+// mendapatkan tema yang tersimpan di localStorage, atau null jika tidak ada
+var currentTheme = localStorage.getItem("theme");
+
+// menentukan tema awal sesuai dengan tema yang tersimpan, atau light jika tidak ada
+if (currentTheme) {
+  // mengatur data-theme sesuai dengan tema yang tersimpan
+  body.setAttribute("data-theme", currentTheme);
+  // menyesuaikan kondisi checkbox dan label sesuai dengan tema yang tersimpan
+  if (currentTheme === "dark") {
+    darkSwitch.checked = true;
+    themeLabel.textContent = "Dark";
+  } else {
+    darkSwitch.checked = false;
+    themeLabel.textContent = "Light";
+  }
+} else {
+  // mengatur data-theme menjadi light
+  body.setAttribute("data-theme", "light");
+  // menyesuaikan kondisi checkbox dan label menjadi light
+  darkSwitch.checked = false;
+  themeLabel.textContent = "Light";
+}
+
+// menambahkan event listener untuk checkbox
+darkSwitch.addEventListener("change", function() {
+  // mendapatkan elemen body
+  var body = document.body;
+  // mendapatkan atribut data-theme dari body
+  var theme = body.getAttribute("data-theme");
+  // mengganti tema sesuai dengan kondisi
+  if (darkSwitch.checked) {
+    // mengubah data-theme menjadi dark
+    body.setAttribute("data-theme", "dark");
+    // mengubah teks label menjadi Dark
+    themeLabel.textContent = "Dark";
+    // menyimpan tema dark di localStorage
+    localStorage.setItem("theme", "dark");
+  } else {
+    // mengubah data-theme menjadi light
+    body.setAttribute("data-theme", "light");
+    // mengubah teks label menjadi Light
+    themeLabel.textContent = "Light";
+    // menyimpan tema light di localStorage
+    localStorage.setItem("theme", "light");
+  }
+});
+  </script>
+  <script>
+var nomorAyat,nomorAyatArab,basmalah="۝بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ ";function addBasmalah(a){1!=a&&9!=a&&document.querySelector(".surah").insertAdjacentHTML("afterend","<div class='basmalah'>"+basmalah+"</div>")}var parameter=window.location.search;parameter=parameter.replace("?","");var nomor_surah=parseInt(parameter) || 1;
+fetch("https://equran.id/api/v2/surat/"+nomor_surah).then((a=>a.json())).then((a=>{document.querySelector(".surah").innerHTML=`\n  <div class="surah">  \n    ${a.data.namaLatin} (${a.data.nama})<div>\n   <ul>\n <li>\n    ${a.data.arti}</li>\n    <li>\n    ${a.data.tempatTurun} ${a.data.jumlahAyat} ayat\n    </li>\n    <input id="deskripsi-button" type="button" value="Deskripsi">\n  </div>\n  </ul>\n  <p id="deskripsi-text" style="display:none"></p>\n`,document.getElementById("deskripsi-button").addEventListener("click",(function(){fetch("https://equran.id/api/v2/surat/"+nomor_surah).then((a=>a.json())).then((a=>{document.getElementById("deskripsi-text").innerHTML=a.data.deskripsi,document.getElementById("deskripsi-text").style.display="none"==document.getElementById("deskripsi-text").style.display?"block":"none",document.getElementById("deskripsi-button").value="Deskripsi"==document.getElementById("deskripsi-button").value?"Tutup":"Deskripsi"}))})),addBasmalah(nomor_surah);for(var t="",e=0;e<a.data.ayat.length;e++)t+='<div class="verse">',t+='<div class="number">',t+=`\n        <div class="star9">${a.data.ayat[e].nomorAyat}</div>\n        <div class="arabic" style="width:100%;text-align:right;font-size:20px;line-height:2.3;margin-top:12px;margin-bottom:10px;direction:rtl;padding-left: 30px; ;">${a.data.ayat[e].teksArab}﴿<span style="font-size: 10px; line-height: 2.3;">${a.data.ayat[e].nomorAyat}</span>﴾</div>\n        <span class="artr" <i>${a.data.ayat[e].teksLatin}</i></span>\n        <span class="arid" >${a.data.ayat[e].teksIndonesia}</span>\n        <audio controls>\n          <source src="${a.data.ayat[e].audio["01"]}" type="audio/mpeg">\n        </audio>\n      `,t+="</div>",t+="</div>";document.getElementById("verse").innerHTML=t})).catch((a=>{console.error("Error:",a)}));  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+ 
+</body>
+</html>

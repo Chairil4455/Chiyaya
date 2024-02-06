@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>quran</title>
+  <!-- tambahkan tag link untuk menghubungkan file CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="surah.css">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
+
+
+
+a{
+  text-decoration:none
+}
+.header{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  height:50vw;
+  min-height:400px;
+  max-height:550px;
+  min-width:300px;
+  color:#eee;
+}
+.header:after{
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:-1;
+ background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+}
+.header:before{
+  content:"";
+  width:100%;
+  height:200%;
+  position:absolute;
+  top:0;
+  left:0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0); backface-visibility: hidden;
+  scale(1.0, 1.0);
+    transform: translateZ(0);
+  background:#1B2030 url(bg.jpg) 50% 0 no-repeat;
+  background-size:100%;
+  background-attachment:fixed;
+  animation: grow 360s  linear 10ms infinite;
+  transition:all 0.4s ease-in-out;
+  z-index:-2
+}
+.header a{
+  color:#eee
+}
+.menu{
+  display:block;
+  width:40px;
+  height:30px;
+  border:2px solid #fff;
+  border-radius:3px;
+  position:absolute;
+  right:20px;
+  top:20px;
+  text-decoration:none
+}
+.menu:after{
+  content:"";
+  display:block;
+  width:20px;
+  height:3px;
+  background:#fff;
+  position:absolute;
+  margin:0 auto;
+  top:5px;
+  left:0;
+  right:0;
+  box-shadow:0 8px, 0 16px
+}
+.logo{
+  border:2px solid #fff;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  align-content:center;
+  margin:20px;
+  padding:0px 10px;
+  font-weight:900;
+  font-size:1.1em;
+  line-height:1;
+  box-sizing:border-box;
+  height:40px
+}
+.sides, .info{
+  flex: 0 0 auto;
+  width:50%
+}
+.info{
+  width:100%;
+  padding:15% 10% 0 10%;
+  text-align:center;
+  text-shadow:0 2px 3px rgba(0,0,0,0.2)
+}
+.author{
+  display:inline-block;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:url(https://i.imgur.com/6DLCsZcb.jpg) center no-repeat;
+  background-size:cover;
+  box-shadow:0 2px 3px rgba(0,0,0,0.3);
+  margin-bottom:3px
+}
+.info h4, .meta{
+  font-size:0.7em
+}
+.meta{
+  font-style:italic;
+}
+@keyframes grow{
+  0% { transform: scale(1) translateY(0px)}
+  50% { transform: scale(1.2) translateY(-400px)}
+}
+.content{  
+  padding:5% 10%;
+  text-align:justify
+}
+.btn{
+  color:#333;
+  border:2px solid;
+  border-radius:3px;
+  text-decoration:none;
+  display:inline-block;
+  padding:5px 10px;
+  font-weight:600
+}
+
+.twtr{
+  margin-top:100px
+}.btn.twtr:after{content:"\1F426";padding-left:5px}
+.borderSurat {
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    display: grid; /* membuat elemen menjadi grid */
+    grid-template-columns: 1fr 6fr; /* membuat dua kolom dengan rasio 1:2 */
+    grid-template-rows: 1fr; /* membuat satu baris */
+    grid-template-areas: "star info arabic"; /* menentukan area untuk setiap elemen */
+    align-items: center; /* menyelaraskan elemen secara vertikal */
+    overflow: auto;
+    padding: 8px;
+  }
+
+.nmayah {
+
+  font-weight: bold; /* membuat teks menjadi tebal */
+
+  font-size: 20px; /* mengubah ukuran font menjadi 20px */
+  color: #663399;
+  align-items: left;
+}
+.type {
+  color: gold; /* mengubah warna teks menjadi hijau */
+  font-style: italic; /* membuat teks menjadi miring */
+  font-size: 15px; /* mengubah ukuran font menjadi 15px */
+  align-items: left;
+}
+
+.arti {
+  color: white; /* mengubah warna teks menjadi putih */
+  font-size: 12px; /* mengubah ukuran font menjadi 12px */
+  align-items: left;
+}
+audio {
+  width: 100px; /* mengubah lebar elemen audio menjadi 300px */
+  height: 10px; /* mengubah tinggi elemen audio menjadi 50px */
+}
+
+
+  .star8 {
+	background-image: url(star8.png);
+	width: 31px;
+	height: 31px;
+	text-align: center;
+	line-height: 2.3;
+	font-size: 14px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: blue;
+	float: left;
+	clear: both;
+	font-weight: bold;
+	
+	
+}
+
+  .info {
+    display: flex; /* membuat elemen menjadi fleksibel */
+    flex-direction: column; /* menyusun elemen secara vertikal */
+    justify-content: center; /* menyelaraskan elemen secara horizontal */
+    grid-area: info; /* menempatkan elemen di area info */
+  }
+
+  .arabic {
+    grid-area: arabic; /* menempatkan elemen di area arabic */
+    font-size: 2rem; /* mengubah ukuran font */
+    text-align: center; /* menyelaraskan teks secara horizontal */
+  }
+  </style>
+</head>
+<body data-theme="light">
+	<div class="header">
+  <div class="sides">
+    <a href="#" class="logo">Qur'an</a>
+  </div>
+  <div class="sides"> <a href="#" class="menu"> </a></div>
+  <div class="info">
+  <h4><a href="#category">chairil DESIGN</a></h4>
+    <h1>AL QUR'AN DIGITAL</h1>
+    <div class="meta">
+      <a  href="#container mt-5" target="_b" class="author"></a><br>
+      By <a href="https://twitter.com/nodws" target="_b">khairil</a> 06 feb 2024
+    </div>
+  </div>
+</div>
+
+  <div class="container mt-5">
+        <div class="row border-surat-list">
+        </div>
+
+<script>
+/// Mendefinisikan fungsi playAudio
+function playAudio(event) {
+  // Mendapatkan elemen play yang diklik
+  const play = event.target;
+  // Mendapatkan elemen audio yang bersangkutan
+  const audio = play.parentElement.querySelector(".audio");
+  // Memutar audio
+  audio.play();
+  // Mengganti icon play dengan icon pause
+  play.classList.replace("bi bi-play-circle-fill", "bi bi-pause-circle-fill");
+}
+// Mendefinisikan fungsi pauseAudio
+function pauseAudio(event) {
+  // Mendapatkan elemen pause yang diklik
+  const pause = event.target;
+  // Mendapatkan elemen audio yang bersangkutan
+  const audio = pause.parentElement.querySelector(".audio");
+  // Menghentikan audio
+  audio.pause();
+  // Mengganti icon pause dengan icon play
+  pause.classList.replace("bi bi-pause-circle-fill", "bi bi-play-circle-fill");
+}
+// Mendefinisikan fungsi getSurat
+function getSurat() {
+  fetch('https://equran.id/api/surat')
+    .then(response => response.json())
+    .then(response => {
+      let borderSurat = "";
+      response.forEach(surat => {
+        borderSurat +=
+          `<div class="col-md-6 col-sm-12">
+            <div class="border mb-2 borderSurat">
+              <div class="star8">${surat.nomor}.</div>
+              <div class="info">
+                <span class="nmayah" onclick="location.href='surat.html?${surat.nomor}'">${surat.nama_latin}.</span>
+                <small class="arti">(${surat.arti}).</small>
+                <span class="type">${surat.tempat_turun}.${surat.jumlah_ayat} ayat </span>
+                <audio class="audio"><source src="${surat.audio}"></audio><i class="bi bi-play-circle-fill" style="display: block;"></i>
+                <i class="bi bi-pause-circle-fill" style="display: none;"></i>
+              </div>
+              <div class="arabic">${surat.nama}</div>
+            </div>
+          </div>`;
+      });
+
+      const listSurat = document.querySelector('.border-surat-list');
+      listSurat.innerHTML = borderSurat;
+
+      // Mendapatkan semua elemen play dan pause
+      const play = document.querySelectorAll(".bi bi-play-circle-fill");
+      const pause = document.querySelectorAll(".bi bi-pause-circle-fill");
+
+      // Menambahkan event listener pada setiap elemen play
+      for (let i = 0; i < play.length; i++) {
+        play[i].addEventListener("click", playAudio);
+      }
+
+      // Menambahkan event listener pada setiap elemen pause
+      for (let i = 0; i < pause.length; i++) {
+        pause[i].addEventListener("click", pauseAudio);
+      }
+
+      console.log(response);
+    });
+}
+
+// Memanggil fungsi getSurat
+getSurat();
+
+</script>
+<script>
+  </body>
+</html>

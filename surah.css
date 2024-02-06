@@ -1,0 +1,168 @@
+[data-theme="light"] {
+  --color-theme: #007070;
+  --color-background: #B0C4DE;
+  --color-bgsecondary: #ffffff;
+  --color-content: #ffffff;
+  --color-secondary: green;
+  --color-bgstar: #ffffff;
+  --color-textstar: #000000;
+  --color-even-ayah: #ffffff;
+  --color-odd-ayah: #f2f2f2;
+  --color-title-text: #663399;
+  --color-separator: #eeeeee;
+  --color-arabic: #663399;
+  --color-text: white;
+  --color-mint: #82CFD0;
+  --color-shadow-rgb: 119, 119, 119;
+}
+
+[data-theme="dark"] {
+  --color-theme: #1f2125;
+  --color-background: #343a40;
+  --color-bgsecondary: #1f2125;
+  --color-content: #1f2125;
+  --color-secondary: #777777;
+  --color-bgstar: #343a40;
+  --color-textstar: #ffffff;
+  --color-even-ayah: #1f2125;
+  --color-odd-ayah: #252a2e;
+  --color-title-text: #2ca4ab;
+  --color-separator: #464b50;
+  --color-arabic: #ffffff;
+  --color-text: #ffffff;
+  --color-mint: #82CFD0;
+  --color-shadow-rgb: 0, 0, 0;
+}
+
+
+@font-face {
+  font-family: "KFGQPC Uthmanic Script HAFS";
+  font-style: "normal";
+  src: url("KFGQPC Uthmanic Script HAFS Regular.otf") ;
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: "normal";
+  src: url("../fonts/font-Poppins-Regular.ttf") format("truetype");
+}
+
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--color-background);
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+div,
+span {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arabic {
+    font-family: "KFGQPC Uthmanic Script HAFS";
+    color: var(--color-arabic);
+    word-break: break-word;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    text-align:right;
+    font-weight: bold; 
+float:right;
+font-style:10px;
+direction:rtl;
+
+     .cardSurat {
+  border: 2px solid var(--color-secondary);
+  border-radius: 10px;
+  display: flex; /* membuat elemen menjadi fleksibel */
+  align-items: center; /* menyelaraskan elemen secara vertikal */
+}
+
+.nmayah,
+.arti,
+.type {
+  
+  line-height: 1.2;
+}
+
+.type {
+  color: var(--color-secondary); /* mengubah warna teks menjadi hijau */
+  font-style: italic; /* membuat teks menjadi miring */
+  font-size: 15px; /* mengubah ukuran font menjadi 15px */
+}
+
+.arti {
+  color: var(--color-text); /* mengubah warna teks menjadi putih */
+  font-size: 12px; /* mengubah ukuran font menjadi 12px */
+  font-style: italic;
+}
+
+
+.type {
+  font-size: 13px;
+  color: var(--color-secondary);
+  text-transform: capitalize;
+}
+
+.heropanel--video {
+    font-family:sans-serif;
+    min-height:500px;
+}
+
+@keyframes gm-slidein {
+    from {
+        -webkit-transform:translate3d(0,-100%,0);
+        opacity:0;
+        transform:translate3d(0,-100%,0);
+    }
+  
+    to {
+        -webkit-transform:none;
+        opacity:1;
+        transform:none;
+    }
+}
+.heropanel__content {
+    -moz-animation:gm-slidein 3s 1;
+    -ms-animation:gm-slidein 3s 1;
+    -o-animation:gm-slidein 3s 1;
+    -webkit-animation:gm-slidein 3s 1;
+    animation:gm-slidein 3s 1;
+    border-bottom:1px solid #FFF;
+    margin:0 auto;
+    max-width:50%;
+    padding:4em 0 2em;
+    text-align:center;
+}
+
+.heropanel__content h1 {
+    margin:0 0 .5em;
+    text-transform:uppercase;
+}
+
+.heropanel__content h1 a {
+    color:#FFF;
+    text-decoration:none;
+}
+.heropanel__content p {
+    color:#fff;
+    margin:0;
+    text-transform:uppercase;
+}
